@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>paynetworxhosted</name>
+    <displayName><![CDATA[Paynetworx (Hosted)]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[PCI-compliant card payments via Paynetworx hosted iframe. SAQ A eligible.]]></description>
+    <author><![CDATA[ArcPro Media Inc.]]></author>
+    <tab><![CDATA[payments_gateways]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+    <limited_countries></limited_countries>
+</module>

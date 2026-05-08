@@ -1,0 +1,75 @@
+.pnx-hosted-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+/* ── States ──────────────────────────────────────────────────────────────── */
+.pnx-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 30px;
+    color: #555;
+    font-size: 15px;
+}
+
+.pnx-processing {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+}
+
+/* ── Spinner ─────────────────────────────────────────────────────────────── */
+.pnx-spinner {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #2fb5d2;
+    border-radius: 50%;
+    animation: pnx-spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pnx-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── iframe ──────────────────────────────────────────────────────────────── */
+.pnx-iframe {
+    width: 100%;
+    min-height: 500px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ── Error message ───────────────────────────────────────────────────────── */
+.pnx-error-msg {
+    color: #c0392b;
+    font-size: 14px;
+    margin: 0 0 12px;
+    padding: 12px 16px;
+    background: #fff5f5;
+    border: 1px solid #fcc;
+    border-radius: 6px;
+}
+
+/* ── Confirmation ────────────────────────────────────────────────────────── */
+.pnx-confirmation {
+    padding: 20px;
+    background: #f0faf5;
+    border: 1px solid #b2dfdb;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2c3e50;
+}
+
+.pnx-confirmation p {
+    margin: 0 0 8px;
+}
+
+.pnx-confirmation p:last-child {
+    margin-bottom: 0;
+}
