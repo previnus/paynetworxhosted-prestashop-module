@@ -82,8 +82,12 @@ class PaynetworxhostedValidationModuleFrontController extends ModuleFrontControl
             return;
         }
 
-        $currency = $this->context->currency;
-        $total    = round((float) $cart->getOrderTotal(true, Cart::BOTH), 2);
+        $currency  = $this->context->currency;
+        $total     = round((float) $cart->getOrderTotal(true, Cart::BOTH), 2);
+        $taxAmount = round(
+            $cart->getOrderTotal(true, Cart::BOTH) - $cart->getOrderTotal(false, Cart::BOTH),
+            2
+        );
 
         $billingData = $this->buildBillingData($cart, $customer);
 
@@ -118,7 +122,7 @@ class PaynetworxhostedValidationModuleFrontController extends ModuleFrontControl
                 1, null, 'Cart', (int) $cart->id, true
             );
 
-            $result = $api->authCaptureWithToken($total, $currency->iso_code, $tokenId, $billingData, (int) $cart->id);
+            $result = $api->authCaptureWithToken($total, $currency->iso_code, $tokenId, $billingData, (int) $cart->id, $taxAmount);
 
             PrestaShopLogger::addLog(
                 'Paynetworx Hosted: gateway response cart=' . (int) $cart->id

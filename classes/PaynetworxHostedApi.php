@@ -93,13 +93,14 @@ class PaynetworxHostedApi
      * @return array  ['status' => int, 'body' => array]
      * @throws Exception on network or JSON error
      */
-    public function authCaptureWithToken($amount, $currency, $tokenId, $billingData = [], $cartId = 0)
+    public function authCaptureWithToken($amount, $currency, $tokenId, $billingData = [], $cartId = 0, $taxAmount = 0.0)
     {
         $orderRef = $cartId > 0 ? 'CART-' . (int) $cartId : 'ORD-' . $this->generateRequestId();
 
         $payload = [
             'Amount' => [
                 'Total'    => round((float) $amount, 2),
+                'Tax'      => round((float) $taxAmount, 2),
                 'Currency' => (string) $currency,
             ],
             'PaymentMethod' => [
