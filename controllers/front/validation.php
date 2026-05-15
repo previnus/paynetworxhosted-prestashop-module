@@ -43,7 +43,7 @@ class PaynetworxhostedValidationModuleFrontController extends ModuleFrontControl
         }
 
         // Idempotency: if an order already exists for this cart, redirect to confirmation
-        $existingOrderId = (int) Order::getOrderByCartId((int) $cart->id);
+        $existingOrderId = (int) Order::getIdByCartId((int) $cart->id);
         if ($existingOrderId > 0) {
             Tools::redirect(
                 'index.php?controller=order-confirmation'
